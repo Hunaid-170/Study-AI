@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>StudyAI – Smart Learning Companion</title>
+<meta name="description" content="StudyAI is your AI-powered study companion: doubt solver, smart notes, quiz generator, and study planner for school, college, and exam prep." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="style.css">
+<script src="js.js"></script>
+<script>
+ 
+</script>
+<style>
+ 
+</style>
+</head>
+<body class="bg-surface dark:bg-darkbg text-ink-900 dark:text-slate-100 antialiased transition-colors duration-300">
+
+<a href="#main-content" class="skip-link font-medium text-sm">Skip to main content</a>
+
+<!-- ============ NAVBAR ============ -->
+<header class="fixed top-0 inset-x-0 z-50 transition-all duration-300" id="navbar">
+  <nav class="glass mx-3 mt-3 sm:mx-6 sm:mt-4 rounded-2xl shadow-card" aria-label="Primary">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="#main-content" class="flex items-center gap-2 group">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-600 via-secondary-500 to-accent-500 flex items-center justify-center shadow-soft group-hover:scale-105 transition-transform">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 2L2 7l10 5 10-5-10-5z" fill="white"/>
+              <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </div>
+          <span class="font-display font-extrabold text-lg tracking-tight">StudyAI</span>
+        </a>
+
+        <!-- Desktop links -->
+        <div class="hidden lg:flex items-center gap-1">
+          <a href="#features" class="px-4 py-2 rounded-lg text-sm font-medium text-ink-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-white/5 transition-colors">Features</a>
+          <a href="#how-it-works" class="px-4 py-2 rounded-lg text-sm font-medium text-ink-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-white/5 transition-colors">How it works</a>
+          <a href="#testimonials" class="px-4 py-2 rounded-lg text-sm font-medium text-ink-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-white/5 transition-colors">Reviews</a>
+          <a href="#pricing" class="px-4 py-2 rounded-lg text-sm font-medium text-ink-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-white/5 transition-colors">Pricing</a>
+          <a href="#faq" class="px-4 py-2 rounded-lg text-sm font-medium text-ink-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-white/5 transition-colors">FAQ</a>
+        </div>
+
+        <!-- Right actions -->
+        <div class="hidden lg:flex items-center gap-3">
+          <button id="theme-toggle" aria-label="Toggle dark mode" class="w-10 h-10 rounded-lg flex items-center justify-center text-ink-500 hover:text-primary-600 hover:bg-primary-50 dark:hover:bg-white/5 transition-colors">
+            <svg id="icon-sun" class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.36 6.36l-.7-.7M6.34 6.34l-.7-.7m12.02 0l-.7.7M6.34 17.66l-.7.7M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            <svg id="icon-moon" class="w-5 h-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          </button>
+          <a href="#" class="px-4 py-2 rounded-lg text-sm font-semibold text-ink-700 dark:text-slate-300 hover:text-primary-600 transition-colors">Log in</a>
+          <a href="#pricing" class="px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-primary-600 hover:bg-primary-700 shadow-soft hover:shadow-glow transition-all duration-300 hover:-translate-y-0.5">Start free</a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <div class="flex items-center gap-2 lg:hidden">
+          <button id="theme-toggle-mobile" aria-label="Toggle dark mode" class="w-10 h-10 rounded-lg flex items-center justify-center text-ink-500">
+            <svg class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.36 6.36l-.7-.7M6.34 6.34l-.7-.7m12.02 0l-.7.7M6.34 17.66l-.7.7M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            <svg class="w-5 h-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          </button>
+          <button id="menu-toggle" aria-label="Open menu" aria-expanded="false" class="w-10 h-10 rounded-lg flex items-center justify-center text-ink-700 dark:text-slate-200">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="lg:hidden">
+        <div class="px-2 pb-4 pt-2 flex flex-col gap-1">
+          <a href="#features" class="px-4 py-3 rounded-lg text-sm font-medium hover:bg-primary-50 dark:hover:bg-white/5">Features</a>
+          <a href="#how-it-works" class="px-4 py-3 rounded-lg text-sm font-medium hover:bg-primary-50 dark:hover:bg-white/5">How it works</a>
+          <a href="#testimonials" class="px-4 py-3 rounded-lg text-sm font-medium hover:bg-primary-50 dark:hover:bg-white/5">Reviews</a>
+          <a href="#pricing" class="px-4 py-3 rounded-lg text-sm font-medium hover:bg-primary-50 dark:hover:bg-white/5">Pricing</a>
+          <a href="#faq" class="px-4 py-3 rounded-lg text-sm font-medium hover:bg-primary-50 dark:hover:bg-white/5">FAQ</a>
+          <div class="flex gap-2 mt-2 px-2">
+            <a href="#" class="flex-1 text-center px-4 py-2.5 rounded-lg text-sm font-semibold border border-ink-200 dark:border-white/10">Log in</a>
+            <a href="#pricing" class="flex-1 text-center px-4 py-2.5 rounded-lg text-sm font-semibold text-white bg-primary-600">Start free</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+
+<!-- ============ HERO ============ -->
+<section class="relative mesh-bg pt-36 pb-24 sm:pt-44 sm:pb-32 overflow-hidden">
+  <!-- Floating educational icons -->
+  <div class="absolute inset-0 pointer-events-none hidden md:block" aria-hidden="true">
+    <div class="orbit-1 absolute top-28 left-[6%] w-14 h-14 rounded-2xl glass-card shadow-soft flex items-center justify-center text-2xl">📚</div>
+    <div class="orbit-2 absolute top-1/3 right-[8%] w-16 h-16 rounded-2xl glass-card shadow-soft flex items-center justify-center text-2xl">🧠</div>
+    <div class="orbit-3 absolute bottom-32 left-[12%] w-12 h-12 rounded-2xl glass-card shadow-soft flex items-center justify-center text-xl">✏️</div>
+    <div class="orbit-4 absolute bottom-20 right-[15%] w-14 h-14 rounded-2xl glass-card shadow-soft flex items-center justify-center text-2xl">🎯</div>
+    <div class="orbit-2 absolute top-1/2 left-[2%] w-10 h-10 rounded-xl glass-card shadow-soft flex items-center justify-center text-lg">⚡</div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Left: copy -->
+      <div class="animate-fadeUp" style="animation-delay:0.05s">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card shadow-card text-xs font-semibold text-primary-700 dark:text-primary-300 mb-6">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-500"></span>
+          </span>
+          Trusted by 250,000+ students worldwide
+        </div>
+
+        <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-[1.08] tracking-tight text-ink-900 dark:text-white">
+          Your AI-powered
+          <span class="block grad-text grad-bg-animated bg-clip-text animate-gradientShift">study companion</span>
+          that actually gets it
+        </h1>
+
+        <p class="mt-6 text-lg text-ink-500 dark:text-slate-400 max-w-xl leading-relaxed">
+          Upload your notes, ask any doubt, and let StudyAI generate summaries, flashcards, and quizzes instantly. Built for school, college, university, and competitive exam success.
+        </p>
+
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+          <a href="#pricing" class="group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl text-base font-semibold text-white bg-primary-600 hover:bg-primary-700 shadow-glow transition-all duration-300 hover:-translate-y-0.5">
+            Get started free
+            <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </a>
+          <a href="#how-it-works" class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl text-base font-semibold text-ink-800 dark:text-slate-100 glass-card shadow-card hover:shadow-soft transition-all duration-300 hover:-translate-y-0.5">
+            <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            Watch demo
+          </a>
+        </div>
+
+        <!-- Stats counters -->
+        <div class="mt-12 grid grid-cols-3 gap-4 sm:gap-8 max-w-md">
+          <div>
+            <div class="stat-num text-2xl sm:text-3xl text-ink-900 dark:text-white" data-counter="250" data-suffix="K+">0</div>
+            <div class="text-xs sm:text-sm text-ink-500 dark:text-slate-400 mt-1">Active students</div>
+          </div>
+          <div>
+            <div class="stat-num text-2xl sm:text-3xl text-ink-900 dark:text-white" data-counter="4.2" data-suffix="M" data-decimal="1">0</div>
+            <div class="text-xs sm:text-sm text-ink-500 dark:text-slate-400 mt-1">Doubts solved</div>
+          </div>
+          <div>
+            <div class="stat-num text-2xl sm:text-3xl text-ink-900 dark:text-white" data-counter="98" data-suffix="%">0</div>
+            <div class="text-xs sm:text-sm text-ink-500 dark:text-slate-400 mt-1">Satisfaction rate</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: interactive AI chat + dashboard preview mockup -->
+      <div class="relative animate-fadeUp" style="animation-delay:0.2s">
+        <!-- Glow backdrop -->
+        <div class="absolute -inset-8 bg-gradient-to-br from-primary-200/40 via-secondary-200/30 to-accent-200/40 dark:from-primary-900/30 dark:via-secondary-900/20 dark:to-accent-900/20 rounded-[2rem] blur-3xl" aria-hidden="true"></div>
+
+        <!-- Main chat card -->
+        <div class="relative glass-card rounded-3xl shadow-glow p-5 sm:p-6 max-w-md mx-auto">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-600 to-secondary-500 flex items-center justify-center text-white font-bold text-sm shadow-soft">AI</div>
+              <div>
+                <p class="font-display font-bold text-sm">StudyAI Tutor</p>
+                <p class="text-xs text-accent-600 dark:text-accent-400 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-accent-500"></span> Online now
+                </p>
+              </div>
+            </div>
+            <svg class="w-5 h-5 text-ink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"/></svg>
+          </div>
+
+          <!-- chat bubbles -->
+          <div class="space-y-3">
+            <div class="flex justify-end">
+              <div class="bg-primary-600 text-white text-sm rounded-2xl rounded-tr-sm px-4 py-2.5 max-w-[80%] shadow-soft">
+                Can you explain photosynthesis in simple terms?
+              </div>
+            </div>
+            <div class="flex justify-start">
+              <div class="bg-white dark:bg-darksurface border border-ink-100 dark:border-white/10 text-sm rounded-2xl rounded-tl-sm px-4 py-3 max-w-[85%] shadow-card">
+                <p class="text-ink-700 dark:text-slate-300">
+                  <span class="typewriter">Plants convert sunlight, water & CO₂ into glucose and oxygen using chlorophyll...</span>
+                </p>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  <span class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-secondary-50 dark:bg-secondary-900/30 text-secondary-700 dark:text-secondary-300">📄 Summary generated</span>
+                  <span class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300">🧩 5 flashcards</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- input bar -->
+          <div class="mt-4 flex items-center gap-2 p-2 rounded-xl bg-ink-50 dark:bg-white/5 border border-ink-100 dark:border-white/10">
+            <svg class="w-5 h-5 text-ink-400 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 10-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/></svg>
+            <span class="text-sm text-ink-400 flex-1">Ask anything or upload a PDF...</span>
+            <svg class="w-5 h-5 text-ink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-14 0m7 0v6m0 0H8m4 0h4M12 1a3 3 0 00-3 3v6a3 3 0 006 0V4a3 3 0 00-3-3z"/></svg>
+            <div class="w-8 h-8 rounded-lg bg-primary-600 flex items-center justify-center text-white shadow-soft">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating mini dashboard card -->
+        <div class="hidden sm:block absolute -bottom-10 -left-6 glass-card rounded-2xl shadow-soft p-4 w-56 animate-float">
+          <p class="text-xs font-semibold text-ink-500 dark:text-slate-400 mb-2">Today's progress</p>
+          <div class="flex items-end gap-1.5 h-16">
+            <div class="flex-1 bg-primary-200 dark:bg-primary-900 rounded-t-md" style="height:40%"></div>
+            <div class="flex-1 bg-primary-300 dark:bg-primary-800 rounded-t-md" style="height:70%"></div>
+            <div class="flex-1 bg-secondary-400 rounded-t-md" style="height:55%"></div>
+            <div class="flex-1 bg-accent-500 rounded-t-md" style="height:90%"></div>
+            <div class="flex-1 bg-primary-600 rounded-t-md" style="height:65%"></div>
+          </div>
+          <p class="text-xs text-ink-500 dark:text-slate-400 mt-2 flex items-center gap-1">
+            <span class="text-accent-500 font-bold">🔥 12-day</span> streak
+          </p>
+        </div>
+
+        <!-- Floating quiz score card -->
+        <div class="hidden sm:block absolute -top-8 -right-4 glass-card rounded-2xl shadow-soft p-4 w-44 animate-floatSlow">
+          <div class="flex items-center gap-2">
+            <div class="w-9 h-9 rounded-full bg-accent-50 dark:bg-accent-900/30 flex items-center justify-center text-accent-600 dark:text-accent-400 font-bold text-sm">A+</div>
+            <div>
+              <p class="text-xs font-bold">Quiz completed</p>
+              <p class="text-[11px] text-ink-500 dark:text-slate-400">9/10 correct</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOGO MARQUEE ============ -->
+<section class="py-10 border-y border-ink-100 dark:border-white/5 bg-white dark:bg-darksurface overflow-hidden">
+  <p class="text-center text-xs font-semibold uppercase tracking-widest text-ink-400 dark:text-slate-500 mb-6">Used by students preparing for</p>
+  <div class="relative">
+    <div class="marquee-track gap-16 px-8 text-ink-400 dark:text-slate-500 font-display font-bold text-lg whitespace-nowrap">
+      <span>JEE & NEET</span><span>SAT & ACT</span><span>UPSC</span><span>GATE</span><span>IELTS & TOEFL</span><span>Board Exams</span><span>GRE & GMAT</span>
+      <span>JEE & NEET</span><span>SAT & ACT</span><span>UPSC</span><span>GATE</span><span>IELTS & TOEFL</span><span>Board Exams</span><span>GRE & GMAT</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section id="features" class="py-24 sm:py-32 bg-surface dark:bg-darkbg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <span class="inline-block text-xs font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-3">Everything you need</span>
+      <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl tracking-tight">One platform for every part of studying</h2>
+      <p class="mt-4 text-ink-500 dark:text-slate-400 text-lg">From your first doubt to your final revision — StudyAI handles it with one cohesive toolkit.</p>
+    </div>
+
+    <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <!-- Feature cards -->
+      <div class="reveal card-lift glass-card rounded-2xl p-6 shadow-card">
+        <div class="w-12 h-12 rounded-xl bg-primary-50 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400 mb-4">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/></svg>
+        </div>
+        <h3 class="font-display font-bold text-lg mb-2">AI Tutor</h3>
+        <p class="text-sm text-ink-500 dark:text-slate-400 leading-relaxed">Get step-by-step explanations for any subject, tailored to your learning level and pace.</p>
+      </div>
+
+      <div class="reveal reveal-delay-1 card-lift glass-card rounded-2xl p-6 shadow-card">
+        <div class="w-12 h-12 rounded-xl bg-secondary-50 dark:bg-secondary-900/30 flex items-center justify-center text-secondary-600 dark:text-secondary-400 mb-4">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3 class="font-display font-bold text-lg mb-2">Doubt Solver</h3>
+        <p class="text-sm text-ink-500 dark:text-slate-400 leading-relaxed">Snap a photo or type your question — get instant, accurate answers with full reasoning.</p>
+      </div>
+
+      <div class="reveal reveal-delay-2 card-lift glass-card rounded-2xl p-6 shadow-card">
+        <div class="w-12 h-12 rounded-xl bg-accent-50 dark:bg-accent-900/30 flex items-center justify-center text-accent-600 dark:text-accent-400 mb-4">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        </div>
+        <h3 class="font-display font-bold text-lg mb-2">Smart Notes Generator</h3>
+        <p class="text-sm text-ink-500 dark:text-slate-400 leading-relaxed">Upload PDFs or slides and get concise summaries, key points, and mind maps.</p>
+      </div>
+
+      <div class="reveal reveal-delay-3 card-lift glass-card rounded-2xl p-6 shadow-card">
+        <div class="w-12 h-12 rounded-xl bg-primary-50 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400 mb-4">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+        </div>
+        <h3 class="font-display font-bold text-lg mb-2">Quiz Creator</h3>
+        <p class="text-sm text-ink-500 dark:text-slate-400 leading-relaxed">Auto-generate MCQs, true/false, and fill-in-the-blanks at your chosen difficulty.</p>
+      </div>
+
+      <div class="reveal card-lift glass-card rounded-2xl p-6 shadow-card">
+        <div class="w-12 h-12 rounded-xl bg-secondary-50 dark:bg-secondary-900/30 flex items-center justify-center text-secondary-600 dark:text-secondary-400 mb-4">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        </div>
+        <h3 class="font-display font-bold text-lg mb-2">Study Planner</h3>
+        <p class="text-sm text-ink-500 dark:text-slate-400 leading-relaxed">Smart calendar with exam countdowns and daily tasks that adapt to your progress.</p>
+      </div>
+
+      <div class="reveal reveal-delay-1 card-lift glass-card rounded-2xl p-6 shadow-card">
+        <div class="w-12 h-12 rounded-xl bg-accent-50 dark:bg-accent-900/30 flex items-center justify-center text-accent-600 dark:text-accent-400 mb-4">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14"/></svg>
+        </div>
+        <h3 class="font-display font-bold text-lg mb-2">Progress Analytics</h3>
+        <p class="text-sm text-ink-500 dark:text-slate-400 leading-relaxed">Visualize study hours, subject performance, and pinpoint weak topics fast.</p>
+      </div>
+
+      <div class="reveal reveal-delay-2 card-lift glass-card rounded-2xl p-6 shadow-card">
+        <div class="w-12 h-12 rounded-xl bg-primary-50 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400 mb-4">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+        </div>
+        <h3 class="font-display font-bold text-lg mb-2">Flashcards Generator</h3>
+        <p class="text-sm text-ink-500 dark:text-slate-400 leading-relaxed">Turn any chapter into spaced-repetition flashcards for faster, longer retention.</p>
+      </div>
+
+      <div class="reveal reveal-delay-3 card-lift glass-card rounded-2xl p-6 shadow-card">
+        <div class="w-12 h-12 rounded-xl bg-secondary-50 dark:bg-secondary-900/30 flex items-center justify-center text-secondary-600 dark:text-secondary-400 mb-4">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3 class="font-display font-bold text-lg mb-2">Exam Prep Assistant</h3>
+        <p class="text-sm text-ink-500 dark:text-slate-400 leading-relaxed">Targeted revision plans and mock tests for JEE, NEET, SAT, UPSC, and board exams.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how-it-works" class="py-24 sm:py-32 bg-white dark:bg-darksurface relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <span class="inline-block text-xs font-bold uppercase tracking-widest text-secondary-600 dark:text-secondary-400 mb-3">Simple workflow</span>
+      <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl tracking-tight">From notes to mastery in five steps</h2>
+      <p class="mt-4 text-ink-500 dark:text-slate-400 text-lg">No complicated setup. Just upload, and let the AI do the heavy lifting.</p>
+    </div>
+
+    <div class="mt-20 relative">
+      <!-- connecting line (desktop) -->
+      <div class="hidden lg:block absolute top-8 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-200 via-secondary-200 to-accent-200 dark:from-primary-900 dark:via-secondary-900 dark:to-accent-900" aria-hidden="true"></div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6">
+        <div class="reveal relative text-center">
+          <div class="relative z-10 w-16 h-16 mx-auto rounded-2xl bg-primary-600 text-white font-display font-extrabold text-xl flex items-center justify-center shadow-glow mb-5">01</div>
+          <h3 class="font-display font-bold text-base mb-2">Upload notes</h3>
+          <p class="text-sm text-ink-500 dark:text-slate-400">Drop PDFs, slides, or photos of handwritten notes.</p>
+        </div>
+        <div class="reveal reveal-delay-1 relative text-center">
+          <div class="relative z-10 w-16 h-16 mx-auto rounded-2xl bg-primary-600 text-white font-display font-extrabold text-xl flex items-center justify-center shadow-glow mb-5">02</div>
+          <h3 class="font-display font-bold text-base mb-2">AI analyzes content</h3>
+          <p class="text-sm text-ink-500 dark:text-slate-400">Our model reads and understands the material deeply.</p>
+        </div>
+        <div class="reveal reveal-delay-2 relative text-center">
+          <div class="relative z-10 w-16 h-16 mx-auto rounded-2xl bg-secondary-500 text-white font-display font-extrabold text-xl flex items-center justify-center shadow-glow mb-5">03</div>
+          <h3 class="font-display font-bold text-base mb-2">Generate summaries</h3>
+          <p class="text-sm text-ink-500 dark:text-slate-400">Get concise notes, key points, and mind maps instantly.</p>
+        </div>
+        <div class="reveal reveal-delay-3 relative text-center">
+          <div class="relative z-10 w-16 h-16 mx-auto rounded-2xl bg-secondary-500 text-white font-display font-extrabold text-xl flex items-center justify-center shadow-glow mb-5">04</div>
+          <h3 class="font-display font-bold text-base mb-2">Create quizzes</h3>
+          <p class="text-sm text-ink-500 dark:text-slate-400">Practice with auto-generated questions and scoring.</p>
+        </div>
+        <div class="reveal reveal-delay-4 relative text-center">
+          <div class="relative z-10 w-16 h-16 mx-auto rounded-2xl bg-accent-500 text-white font-display font-extrabold text-xl flex items-center justify-center shadow-glow mb-5">05</div>
+          <h3 class="font-display font-bold text-base mb-2">Track progress</h3>
+          <p class="text-sm text-ink-500 dark:text-slate-400">See growth over time and target your weak topics.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section id="testimonials" class="py-24 sm:py-32 bg-surface dark:bg-darkbg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <span class="inline-block text-xs font-bold uppercase tracking-widest text-accent-600 dark:text-accent-400 mb-3">Loved by learners</span>
+      <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl tracking-tight">Real results, real students</h2>
+      <p class="mt-4 text-ink-500 dark:text-slate-400 text-lg">Join hundreds of thousands who improved their grades with StudyAI.</p>
+    </div>
+
+    <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="reveal glass-card rounded-2xl p-6 shadow-card card-lift">
+        <div class="flex gap-1 text-accent-500 mb-4" aria-label="5 out of 5 stars">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.447a1 1 0 00-.364 1.118l1.287 3.957c.299.921-.756 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.13 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.286-3.957z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.447a1 1 0 00-.364 1.118l1.287 3.957c.299.921-.756 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.13 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.286-3.957z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.447a1 1 0 00-.364 1.118l1.287 3.957c.299.921-.756 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.13 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.286-3.957z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.447a1 1 0 00-.364 1.118l1.287 3.957c.299.921-.756 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.13 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.286-3.957z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.447a1 1 0 00-.364 1.118l1.287 3.957c.299.921-.756 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.13 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.286-3.957z"/></svg>
+        </div>
+        <p class="text-ink-700 dark:text-slate-300 text-sm leading-relaxed mb-5">"I went from scrambling before exams to having organized notes for every subject. The mind maps make complex chapters click instantly."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/40 flex items-center justify-center font-display font-bold text-primary-700 dark:text-primary-300">AR</div>
+          <div>
+            <p class="font-semibold text-sm">Aisha R.</p>
+            <p class="text-xs text-ink-500 dark:text-slate-400">Class 12, CBSE Board</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1 glass-card rounded-2xl p-6 shadow-card card-lift">
+        <div class="flex gap-1 text-accent-500 mb-4" aria-label="5 out of 5 stars">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.447a1 1 0 00-.364 1.118l1.287 3.957c.299.921-.756 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.13 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.286-3.957z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.447a1 1 0 00-.364 1.118l1.287 3.957c.299.921-.756 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.13 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.286-3.957z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.447a1 1 0 00-.364 1.118l1.287 3.957c.299.921-.756 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.13 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.286-3.957z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.447a1 1 0 00-.364 1.118l1.287 3.957c.299.921-.756 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.13 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.286-3.957z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.447a1 1 0 00-.364 1.118l1.287 3.957c.299.921-.756 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.13 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.286-3.957z"/></svg>
+        </div>
+        <p class="text-ink-700 dark:text-slate-300 text-sm leading-relaxed mb-5">"The doubt solver feels like having a tutor at 2am before finals. I uploaded a tricky thermodynamics problem and got a full breakdown in seconds."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-secondary-100 dark:bg-secondary-900/40 flex items-center justify-center font-display font-bold text-secondary-700 dark:text-secondary-300">DK</div>
+          <div>
+            <p class="font-semibold text-sm">Devansh K.</p>
+            <p class="text-xs text-ink-500 dark:text-slate-400">JEE Aspirant</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2 glass-card rounded-2xl p-6 shadow-card card-lift">
+        <div class="flex gap-1 text-accent-500 mb-4" aria-label="5 out of 5 stars">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.447a1 1 0 00-.364 1.118l1.287 3.957c.299.921-.756 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.13 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.286-3.957z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.447a1 1 0 00-.364 1.118l1.287 3.957c.299.921-.756 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.13 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.286-3.957z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.447a1 1 0 00-.364 1.118l1.287 3.957c.299.921-.756 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.13 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.286-3.957z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.447a1 1 0 00-.364 1.118l1.287 3.957c.299.921-.756 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.13 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.286-3.957z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.447a1 1 0 00-.364 1.118l1.287 3.957c.299.921-.756 1.688-1.54 1.118l-3.367-2.447a1 1 0 00-1.175 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.13 9.384c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.286-3.957z"/></svg>
+        </div>
+        <p class="text-ink-700 dark:text-slate-300 text-sm leading-relaxed mb-5">"The study planner kept me consistent for the first time ever. Watching my streak grow actually made revision feel rewarding."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-accent-100 dark:bg-accent-900/40 flex items-center justify-center font-display font-bold text-accent-700 dark:text-accent-300">PM</div>
+          <div>
+            <p class="font-semibold text-sm">Priya M.</p>
+            <p class="text-xs text-ink-500 dark:text-slate-400">University Sophomore</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section id="pricing" class="py-24 sm:py-32 bg-white dark:bg-darksurface">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <span class="inline-block text-xs font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-3">Simple pricing</span>
+      <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl tracking-tight">Plans that grow with you</h2>
+      <p class="mt-4 text-ink-500 dark:text-slate-400 text-lg">Start free. Upgrade when you're ready for unlimited AI power.</p>
+
+      <!-- Billing toggle -->
+      <div class="mt-8 inline-flex items-center gap-3 glass-card rounded-full p-1.5 shadow-card">
+        <button id="billing-monthly" class="px-5 py-2 rounded-full text-sm font-semibold bg-primary-600 text-white transition-colors" aria-pressed="true">Monthly</button>
+        <button id="billing-yearly" class="px-5 py-2 rounded-full text-sm font-semibold text-ink-600 dark:text-slate-300 transition-colors" aria-pressed="false">
+          Yearly <span class="text-accent-600 dark:text-accent-400">Save 20%</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mt-16 grid lg:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
+      <!-- Free -->
+      <div class="reveal glass-card rounded-3xl p-8 shadow-card flex flex-col card-lift">
+        <h3 class="font-display font-bold text-xl mb-1">Free</h3>
+        <p class="text-sm text-ink-500 dark:text-slate-400 mb-6">For getting started</p>
+        <div class="mb-6">
+          <span class="font-display font-extrabold text-4xl">$0</span>
+          <span class="text-ink-500 dark:text-slate-400">/forever</span>
+        </div>
+        <ul class="space-y-3 text-sm text-ink-700 dark:text-slate-300 flex-1">
+          <li class="flex gap-2"><svg class="w-5 h-5 text-accent-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>10 AI doubt solves / day</li>
+          <li class="flex gap-2"><svg class="w-5 h-5 text-accent-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>3 PDF uploads / month</li>
+          <li class="flex gap-2"><svg class="w-5 h-5 text-accent-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Basic quiz generator</li>
+          <li class="flex gap-2"><svg class="w-5 h-5 text-accent-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Study planner (1 subject)</li>
+          <li class="flex gap-2 text-ink-400 dark:text-slate-500"><svg class="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>Progress analytics</li>
+        </ul>
+        <a href="#" class="mt-8 w-full text-center px-6 py-3.5 rounded-xl font-semibold text-primary-600 border-2 border-primary-200 dark:border-primary-800 hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-colors">Start for free</a>
+      </div>
+
+      <!-- Student Pro -->
+      <div class="reveal reveal-delay-1 relative rounded-3xl p-8 shadow-glow flex flex-col bg-gradient-to-br from-primary-600 via-primary-600 to-secondary-600 text-white scale-[1.02] card-lift">
+        <span class="absolute -top-3 right-8 px-4 py-1 rounded-full bg-accent-500 text-white text-xs font-bold shadow-soft">Most popular</span>
+        <h3 class="font-display font-bold text-xl mb-1">Student Pro</h3>
+        <p class="text-sm text-primary-100 mb-6">For serious learners</p>
+        <div class="mb-6">
+          <span class="font-display font-extrabold text-4xl price-amount" data-monthly="9" data-yearly="7">$9</span>
+          <span class="text-primary-100">/month</span>
+        </div>
+        <ul class="space-y-3 text-sm flex-1">
+          <li class="flex gap-2"><svg class="w-5 h-5 text-accent-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Unlimited AI doubt solving</li>
+          <li class="flex gap-2"><svg class="w-5 h-5 text-accent-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Unlimited PDF analysis</li>
+          <li class="flex gap-2"><svg class="w-5 h-5 text-accent-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Advanced quiz & flashcards</li>
+          <li class="flex gap-2"><svg class="w-5 h-5 text-accent-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Full analytics & weak-topic AI</li>
+          <li class="flex gap-2"><svg class="w-5 h-5 text-accent-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Voice input & mind maps</li>
+        </ul>
+        <a href="#" class="mt-8 w-full text-center px-6 py-3.5 rounded-xl font-semibold bg-white text-primary-700 hover:bg-primary-50 transition-colors shadow-soft">Start 7-day free trial</a>
+      </div>
+
+      <!-- Institution -->
+      <div class="reveal reveal-delay-2 glass-card rounded-3xl p-8 shadow-card flex flex-col card-lift">
+        <h3 class="font-display font-bold text-xl mb-1">Institution</h3>
+        <p class="text-sm text-ink-500 dark:text-slate-400 mb-6">For schools & coaching centers</p>
+        <div class="mb-6">
+          <span class="font-display font-extrabold text-4xl">Custom</span>
+        </div>
+        <ul class="space-y-3 text-sm text-ink-700 dark:text-slate-300 flex-1">
+          <li class="flex gap-2"><svg class="w-5 h-5 text-accent-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Everything in Student Pro</li>
+          <li class="flex gap-2"><svg class="w-5 h-5 text-accent-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Centralized admin dashboard</li>
+          <li class="flex gap-2"><svg class="w-5 h-5 text-accent-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Bulk student licenses</li>
+          <li class="flex gap-2"><svg class="w-5 h-5 text-accent-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Curriculum-aligned content</li>
+          <li class="flex gap-2"><svg class="w-5 h-5 text-accent-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Dedicated support manager</li>
+        </ul>
+        <a href="#" class="mt-8 w-full text-center px-6 py-3.5 rounded-xl font-semibold text-primary-600 border-2 border-primary-200 dark:border-primary-800 hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-colors">Contact sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="py-24 sm:py-32 bg-surface dark:bg-darkbg">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center reveal">
+      <span class="inline-block text-xs font-bold uppercase tracking-widest text-secondary-600 dark:text-secondary-400 mb-3">Got questions?</span>
+      <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl tracking-tight">Frequently asked questions</h2>
+    </div>
+
+    <div class="mt-12 space-y-3">
+      <details class="reveal glass-card rounded-2xl shadow-card group" open>
+        <summary class="cursor-pointer p-5 flex items-center justify-between font-display font-semibold text-base">
+          Is StudyAI free to use?
+          <span class="faq-icon flex-shrink-0 ml-4 w-8 h-8 rounded-lg bg-primary-50 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body px-5 pb-5 text-sm text-ink-500 dark:text-slate-400 leading-relaxed">
+          Yes — the Free plan gives you 10 AI doubt solves per day, basic quizzes, and a single-subject planner with no time limit. Upgrade to Student Pro anytime for unlimited access.
+        </div>
+      </details>
+
+      <details class="reveal reveal-delay-1 glass-card rounded-2xl shadow-card group">
+        <summary class="cursor-pointer p-5 flex items-center justify-between font-display font-semibold text-base">
+          Which exams does StudyAI support?
+          <span class="faq-icon flex-shrink-0 ml-4 w-8 h-8 rounded-lg bg-primary-50 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body px-5 pb-5 text-sm text-ink-500 dark:text-slate-400 leading-relaxed">
+          StudyAI supports school curricula (CBSE, ICSE, and state boards), competitive exams like JEE, NEET, UPSC, and GATE, plus international tests including SAT, ACT, IELTS, TOEFL, GRE, and GMAT.
+        </div>
+      </details>
+
+      <details class="reveal reveal-delay-2 glass-card rounded-2xl shadow-card group">
+        <summary class="cursor-pointer p-5 flex items-center justify-between font-display font-semibold text-base">
+          Can I upload handwritten notes?
+          <span class="faq-icon flex-shrink-0 ml-4 w-8 h-8 rounded-lg bg-primary-50 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body px-5 pb-5 text-sm text-ink-500 dark:text-slate-400 leading-relaxed">
+          Yes. Snap a photo of handwritten or printed notes and StudyAI will read, organize, and summarize the content — including diagrams and equations.
+        </div>
+      </details>
+
+      <details class="reveal reveal-delay-3 glass-card rounded-2xl shadow-card group">
+        <summary class="cursor-pointer p-5 flex items-center justify-between font-display font-semibold text-base">
+          Is my data private and secure?
+          <span class="faq-icon flex-shrink-0 ml-4 w-8 h-8 rounded-lg bg-primary-50 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body px-5 pb-5 text-sm text-ink-500 dark:text-slate-400 leading-relaxed">
+          Your notes and conversations are encrypted in transit and at rest. We never sell student data, and institutions can request dedicated data-handling agreements.
+        </div>
+      </details>
+
+      <details class="reveal reveal-delay-4 glass-card rounded-2xl shadow-card group">
+        <summary class="cursor-pointer p-5 flex items-center justify-between font-display font-semibold text-base">
+          Can my school or coaching center get a bulk plan?
+          <span class="faq-icon flex-shrink-0 ml-4 w-8 h-8 rounded-lg bg-primary-50 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body px-5 pb-5 text-sm text-ink-500 dark:text-slate-400 leading-relaxed">
+          Absolutely. The Institution plan includes bulk licensing, an admin dashboard for tracking student progress, and curriculum alignment. Contact our sales team for custom pricing.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="py-20 sm:py-28 relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-700" aria-hidden="true"></div>
+  <div class="absolute inset-0 opacity-20" aria-hidden="true" style="background-image: radial-gradient(circle at 20% 30%, white 1px, transparent 1px), radial-gradient(circle at 80% 70%, white 1px, transparent 1px); background-size: 60px 60px;"></div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative reveal">
+    <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">Ready to study smarter, not harder?</h2>
+    <p class="mt-4 text-lg text-primary-100 max-w-xl mx-auto">Join 250,000+ students using StudyAI to ace their exams. No credit card required.</p>
+    <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#pricing" class="inline-flex items-center justify-center px-8 py-4 rounded-xl text-base font-semibold text-primary-700 bg-white hover:bg-primary-50 shadow-soft transition-all duration-300 hover:-translate-y-0.5">Get started free</a>
+      <a href="#" class="inline-flex items-center justify-center px-8 py-4 rounded-xl text-base font-semibold text-white border-2 border-white/30 hover:bg-white/10 transition-all duration-300 hover:-translate-y-0.5">Talk to sales</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-ink-900 dark:bg-black text-slate-300 pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-10">
+      <div class="lg:col-span-2">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-600 via-secondary-500 to-accent-500 flex items-center justify-center shadow-soft">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 2L2 7l10 5 10-5-10-5z" fill="white"/>
+              <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </div>
+          <span class="font-display font-extrabold text-lg text-white">StudyAI</span>
+        </div>
+        <p class="text-sm text-slate-400 max-w-sm leading-relaxed">The AI-powered study companion helping students learn faster, retain more, and walk into every exam with confidence.</p>
+        <div class="flex gap-3 mt-6">
+          <a href="#" aria-label="StudyAI on X / Twitter" class="w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" aria-label="StudyAI on Instagram" class="w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.332.014 7.052.072 2.695.272.273 2.69.073 7.052.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.332 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.668-.072-4.948-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="#" aria-label="StudyAI on YouTube" class="w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.499 6.203a2.97 2.97 0 00-2.088-2.088c-1.864-.5-9.408-.5-9.408-.5s-7.545 0-9.41.5A2.97 2.97 0 00.502 6.203C0 8.07 0 12 0 12s0 3.93.502 5.797a2.97 2.97 0 002.088 2.088c1.865.5 9.41.5 9.41.5s7.544 0 9.408-.5a2.97 2.97 0 002.088-2.088C24 15.93 24 12 24 12s0-3.93-.502-5.797zM9.546 15.568V8.432L15.818 12z"/></svg>
+          </a>
+          <a href="#" aria-label="StudyAI on LinkedIn" class="w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 11.001-4.125 2.062 2.062 0 010 4.125zM7.119 20.452H3.555V9h3.564v11.452z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="font-display font-bold text-sm text-white mb-4">Product</h4>
+        <ul class="space-y-2.5 text-sm text-slate-400">
+          <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
+          <li><a href="#pricing" class="hover:text-white transition-colors">Pricing</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">AI Tutor</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Mobile app</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-display font-bold text-sm text-white mb-4">Company</h4>
+        <ul class="space-y-2.5 text-sm text-slate-400">
+          <li><a href="#" class="hover:text-white transition-colors">About us</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Press kit</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-display font-bold text-sm text-white mb-4">Support</h4>
+        <ul class="space-y-2.5 text-sm text-slate-400">
+          <li><a href="#faq" class="hover:text-white transition-colors">FAQ</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Help center</a></li>
+          <li>
+            <a href="mailto:support@studyai.app" class="hover:text-white transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              support@studyai.app
+            </a>
+          </li>
+          <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <p>© 2026 StudyAI Technologies Inc. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+        <a href="#" class="hover:text-white transition-colors">Cookie Settings</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Dark mode toggle with persistence
+  const root = document.documentElement;
+  const stored = null; // in-memory only (no localStorage in artifacts)
+  let isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (isDark) root.classList.add('dark');
+
+  function toggleTheme() {
+    root.classList.toggle('dark');
+  }
+  document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+  document.getElementById('theme-toggle-mobile').addEventListener('click', toggleTheme);
+
+  // Mobile menu
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  let menuOpen = false;
+  menuToggle.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    mobileMenu.classList.toggle('open', menuOpen);
+    menuToggle.setAttribute('aria-expanded', String(menuOpen));
+    menuIcon.setAttribute('d', menuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16');
+  });
+  // Close mobile menu when a link is clicked
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menuOpen = false;
+    mobileMenu.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+  }));
+
+  // Scroll reveal animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Animated stat counters
+  function animateCounter(el) {
+    const target = parseFloat(el.dataset.counter);
+    const suffix = el.dataset.suffix || '';
+    const decimals = el.dataset.decimal ? parseInt(el.dataset.decimal) : 0;
+    const duration = 1400;
+    const start = performance.now();
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = target * eased;
+      el.textContent = value.toFixed(decimals) + suffix;
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        statObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('[data-counter]').forEach(el => statObserver.observe(el));
+
+  // Pricing billing toggle
+  const monthlyBtn = document.getElementById('billing-monthly');
+  const yearlyBtn = document.getElementById('billing-yearly');
+  const priceEl = document.querySelector('.price-amount');
+  function setBilling(period) {
+    const isMonthly = period === 'monthly';
+    monthlyBtn.classList.toggle('bg-primary-600', isMonthly);
+    monthlyBtn.classList.toggle('text-white', isMonthly);
+    monthlyBtn.classList.toggle('text-ink-600', !isMonthly);
+    monthlyBtn.classList.toggle('dark:text-slate-300', !isMonthly);
+    yearlyBtn.classList.toggle('bg-primary-600', !isMonthly);
+    yearlyBtn.classList.toggle('text-white', !isMonthly);
+    yearlyBtn.classList.toggle('text-ink-600', isMonthly);
+    yearlyBtn.classList.toggle('dark:text-slate-300', isMonthly);
+    monthlyBtn.setAttribute('aria-pressed', String(isMonthly));
+    yearlyBtn.setAttribute('aria-pressed', String(!isMonthly));
+    if (priceEl) {
+      priceEl.textContent = '$' + (isMonthly ? priceEl.dataset.monthly : priceEl.dataset.yearly);
+    }
+    const suffix = document.querySelector('.price-amount').nextElementSibling;
+    if (suffix) suffix.textContent = isMonthly ? '/month' : '/month, billed yearly';
+  }
+  monthlyBtn.addEventListener('click', () => setBilling('monthly'));
+  yearlyBtn.addEventListener('click', () => setBilling('yearly'));
+
+  // Navbar shrink on scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      navbar.querySelector('nav').classList.add('shadow-soft');
+    } else {
+      navbar.querySelector('nav').classList.remove('shadow-soft');
+    }
+  });
+</script>
+
+</body>
+</html>
